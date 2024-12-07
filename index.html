@@ -1,28 +1,52 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Flatiron Task Lister</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task List with Priority</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="main-content">
-    <h1>Task Lister Lite™️</h1>
 
-    <form id="create-task-form" action="" method="POST">
-      <label for="new-task-description">Task Description:</label>
-      <input type="text" id="new-task-description" name="new-task-description" placeholder="Describe your tasks here .">
-      <input type="submit" value="Create New Task">
-    </form>
+  <header>
+    <h1>Task List with Priority</h1>
+  </header>
 
-    <div id="list">
-      <h2>What To Do !</h2>
-      <ul id="tasks">
-      </ul>
-    </div>
+  <main>
+    <section id="task-form">
+      <form id="create-task-form" aria-labelledby="task-form">
+        <label for="new-task-description">Task Description:</label>
+        <input type="text" id="new-task-description" name="new-task-description" placeholder="Describe your task here" required>
 
-    <script src="./src/index.js"></script>
-  </div>
+        <label for="priority">Priority:</label>
+        <select id="priority" aria-label="Select task priority">
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
 
+        <label for="user">User:</label>
+        <input type="text" id="user" placeholder="Assign a user" aria-label="Task assignee">
+
+        <input type="submit" value="Create New Task">
+      </form>
+    </section>
+
+    <section id="task-list">
+      <h2>Task List</h2>
+      <ul id="tasks" role="list" aria-live="polite"></ul>
+
+      <div id="sorting-buttons">
+        <button id="sort-asc" aria-label="Sort tasks in ascending order">Sort Ascending</button>
+        <button id="sort-desc" aria-label="Sort tasks in descending order">Sort Descending</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Task List Application - 2024</p>
+  </footer>
+
+  <script src="src/index.js"></script>
 </body>
 </html>
